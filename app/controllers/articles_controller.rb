@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   include ArticlesHelper
-  
+
   def index
     @articles = Article.all
   end
@@ -25,9 +25,8 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.destroy(params[:id])
-
     flash.notice = "Article #{@article.title} has been deleted."
+    @article = Article.destroy(params[:id])
 
     redirect_to articles_path
   end
